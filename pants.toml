@@ -1,0 +1,57 @@
+[GLOBAL]
+pants_version = "2.11.1rc2"
+pythonpath = ["%(buildroot)s/pants-plugins"]
+backend_packages.add = [
+  "pants.backend.python",
+  "pants.backend.docker",
+  "pants.backend.docker.lint.hadolint",
+  "pants.backend.experimental.python.lint.autoflake",
+  "pants.backend.python.lint.bandit",
+  "pants.backend.python.lint.black",
+  "pants.backend.python.lint.docformatter",
+  "pants.backend.python.lint.flake8",
+  "pants.backend.python.typecheck.mypy",
+  "pants.backend.python.lint.isort",
+  "pants.backend.plugin_development",
+  "pants.backend.shell",
+  "pants.backend.shell.lint.shellcheck",
+  "pants.backend.shell.lint.shfmt",
+]
+
+[source]
+root_patterns = [
+  "src/package-a",
+  "src/package-b"
+]
+
+[pex-cli]
+version = "v2.1.93"
+known_versions = [
+  "v2.1.93|macos_arm64|80fc6b94f5db253a71061974cb8d8ce520932aef44d989e9057917cc33a30fd6|3802280",
+  "v2.1.93|macos_x86_64|80fc6b94f5db253a71061974cb8d8ce520932aef44d989e9057917cc33a30fd6|3802280",
+  "v2.1.93|linux_x86_64|80fc6b94f5db253a71061974cb8d8ce520932aef44d989e9057917cc33a30fd6|3802280"
+]
+use_unsupported_version = "warning"
+
+[python]
+interpreter_constraints = ["CPython>=3.9,<3.11"]
+lockfile_generator = "pex"
+enable_resolves = true
+default_resolve = "multi-poetry"
+
+[python.resolves]
+multi-poetry = "multi-poetry.lock"
+common_a_b = "common_a_b.lock"
+
+[anonymous-telemetry]
+enabled = false
+
+[setup-py-generation]
+generate_setup_default = true
+
+[python-infer]
+inits = true
+
+[shfmt]
+# See https://github.com/mvdan/sh/blob/master/cmd/shfmt/shfmt.1.scd#printer-flags.
+args = ["-i 4", "-ci", "-sr"]
