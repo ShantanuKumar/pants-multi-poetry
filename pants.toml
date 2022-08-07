@@ -20,8 +20,7 @@ backend_packages.add = [
 
 [source]
 root_patterns = [
-  "src/package-a",
-  "src/package-b"
+  "src/",
 ]
 
 [pex-cli]
