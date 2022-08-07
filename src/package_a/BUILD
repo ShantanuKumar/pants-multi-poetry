@@ -12,3 +12,9 @@ python_distribution(
     ),
     generate_setup=True,
 )
+
+pex_binary(
+    name="pex_package_a",
+    entry_point="main.py:main",
+    resolve="common_a_b"
+)
