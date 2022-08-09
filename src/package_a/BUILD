@@ -15,6 +15,6 @@ python_distribution(
 
 pex_binary(
     name="pex_package_a",
-    entry_point="main.py:main",
+    entry_point="main.py",
     resolve="common_a_b"
 )
