@@ -16,11 +16,13 @@ backend_packages.add = [
   "pants.backend.shell",
   "pants.backend.shell.lint.shellcheck",
   "pants.backend.shell.lint.shfmt",
+  "internal_plugins",
 ]
 
 [source]
 root_patterns = [
   "src/",
+  "/pants-plugins",
 ]
 
 [pex-cli]
@@ -33,7 +35,7 @@ known_versions = [
 use_unsupported_version = "warning"
 
 [python]
-interpreter_constraints = ["CPython>=3.9,<3.11"]
+interpreter_constraints = ["CPython>=3.7,<3.11"]
 lockfile_generator = "pex"
 enable_resolves = true
 default_resolve = "multi-poetry"

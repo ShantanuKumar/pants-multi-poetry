@@ -16,5 +16,7 @@ python_distribution(
 pex_binary(
     name="pex_package_a",
     entry_point="main.py",
-    resolve="common_a_b"
+    resolve="common_a_b",
+    execution_mode="venv",
+    complete_platforms  =["linux-x86_64"]
 )
