@@ -18,7 +18,8 @@ backend_packages.add = [
 
 [source]
 root_patterns = [
-  "src/",
+  "/src/package-a",
+  "/src/package-b",
   "/pants-plugins",
 ]
 
