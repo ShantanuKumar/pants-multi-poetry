@@ -13,14 +13,13 @@ backend_packages.add = [
   "pants.backend.python.typecheck.mypy",
   "pants.backend.python.lint.isort",
   "pants.backend.plugin_development",
-  "internal_plugins",
 ]
+pants_ignore.add = ["/pants-plugins"]
 
 [source]
 root_patterns = [
   "/src/package-a",
-  "/src/package-b",
-  "/pants-plugins",
+  "/src/package-b"
 ]
 
 [python]
@@ -37,3 +36,9 @@ enabled = false
 
 [setup-py-generation]
 generate_setup_default = true
+
+[mypy]
+version = "mypy>=0.971"
+extra_requirements.add = ["pydantic>=1.9.1", "pandas-stubs", "types-requests>=2.28.11"]
+extra_type_stubs = ["pandas-stubs", "types-requests>=2.28.11"]
+lockfile = "mypy.lock"

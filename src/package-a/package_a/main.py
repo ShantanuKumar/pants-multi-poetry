@@ -6,17 +6,18 @@ from fastapi import FastAPI
 
 import package_a as pa
 import package_b as pb
+from typing import Dict, Any
 
 app = FastAPI()
 
 
 @app.get("/")
-def read_root():
+def read_root() -> Dict[str, str]:
     return {"Hello": "World"}
 
 
 @app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
+def read_item(item_id: int, q: Union[str, None] = None) -> Dict[str, Any]:
     return {
         "item_id": item_id,
         "pa_version": pa.__version__,

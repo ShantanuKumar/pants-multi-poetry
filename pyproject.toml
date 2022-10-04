@@ -1,0 +1,57 @@
+[tool.black]
+line-length = 100
+exclude = '''
+/(
+  | \.git
+  | \.mypy_cache
+  | dist
+  | \.pants\.d
+  | virtualenvs
+  # This file intentionally contains invalid syntax
+  # It trips black up.
+  | compilation_failure
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+# FIXME: create a separate pull request to fix this
+# known_first_party = ["pyfleet_vehicle_spec", "pyfleet_charge_plan", "pyfleet_etl"]
+skip_glob = [
+    "dist",
+    "infrastructure",
+    ".tmp",
+    ".git",
+    ".pants.d",
+    ".pytest_cache",
+    ".vscode",
+]
+
+[tool.mypy]
+plugins = [
+  "pydantic.mypy"
+]
+namespace_packages = true
+strict = true
+
+# Error output
+show_column_numbers = true
+show_error_context = true
+show_error_codes = true
+show_traceback = true
+pretty = true
+color_output = true
+error_summary = true
+
+ignore_missing_imports = true
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true

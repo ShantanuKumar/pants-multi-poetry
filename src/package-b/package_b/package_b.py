@@ -1,3 +1,5 @@
 import pandas as pd
 
-print(pd.__version__)
+
+def print_version() -> None:
+    print(pd.__version__)
