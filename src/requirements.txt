@@ -1,3 +1,4 @@
-pandas
-fastapi
-uvicorn
+pandas~=1.5
+fastapi~=0.85
+uvicorn~=0.18
+awswrangler~=2.17

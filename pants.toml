@@ -23,7 +23,7 @@ root_patterns = [
 ]
 
 [python]
-interpreter_constraints = ["CPython>=3.7,<3.11"]
+interpreter_constraints = ["CPython>=3.9,<3.11"]
 enable_resolves = true
 default_resolve = "multi-poetry"
 
