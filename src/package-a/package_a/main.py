@@ -1,13 +1,11 @@
-from typing import Union
+from typing import Any, Dict, Union
 
+import awswrangler as wr
+import package_a as pa
+import package_b as pb
 import pandas as pd
 import uvicorn
 from fastapi import FastAPI
-import awswrangler as wr
-
-import package_a as pa
-import package_b as pb
-from typing import Dict, Any
 
 app = FastAPI()
 

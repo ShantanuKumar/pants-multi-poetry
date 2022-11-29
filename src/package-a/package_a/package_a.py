@@ -1,6 +1,5 @@
-import pandas as pd
-
 import package_b as pb
+import pandas as pd
 
 
 def print_version() -> None:
